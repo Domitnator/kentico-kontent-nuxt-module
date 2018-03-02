@@ -24,4 +24,4 @@ jobs:
             - "node_modules"
 
       # Test
-      - run: yarn test
+      # - run: yarn test
