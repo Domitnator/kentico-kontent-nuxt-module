@@ -1,6 +1,6 @@
 {
   "name": "kenticocloud-nuxt-module",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Add kentico cloud super power to your nuxt app",
   "main": "lib/module.js",
   "directories": {
@@ -9,11 +9,12 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version && git push --follow-tags && npm publish"
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Domitnator/kenticocloud-nuxt-module.git"
+    "url": "https://github.com/Domitnator/kenticocloud-nuxt-module.git"
   },
   "keywords": [
     "nuxt",
@@ -39,7 +40,8 @@
     "kentico-cloud-delivery-typescript-sdk": "^2.5.2"
   },
   "devDependencies": {
-    "nuxt-module-builder": "^1.0.0"
+    "nuxt-module-builder": "^1.0.0",
+    "semantic-release": "^12.4.1"
   },
   "peerDependencies": {
     "nuxt": "<1.0.0 || >1.2.1"

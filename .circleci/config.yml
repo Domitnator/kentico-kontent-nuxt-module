@@ -25,3 +25,8 @@ jobs:
 
       # Test
       # - run: yarn test
+      
+      # Release
+      - run:
+          name: release
+          command: npm run semantic-release || true
