@@ -1,7 +1,7 @@
 {
   "name": "kenticocloud-nuxt-module",
-  "version": "0.0.3-development",
-  "description": "Add kentico cloud super power to your nuxt app",
+  "version": "0.0.8-development",
+  "description": "Add Kentico Cloud super power to your nuxt app",
   "main": "lib/module.js",
   "directories": {
     "lib": "lib",
@@ -9,9 +9,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version && git push --follow-tags && npm publish",
     "semantic-release": "semantic-release"
   },
+  "eslintIgnore": [
+    "lib/templates/*.*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Domitnator/kenticocloud-nuxt-module.git"
@@ -23,7 +25,9 @@
     "vuejs"
   ],
   "files": [
-    "lib"
+    "lib",
+    "src",
+    "dist"
   ],
   "author": "Alfred Brockotter",
   "contributors": [
@@ -37,6 +41,7 @@
   },
   "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
   "dependencies": {
+    "eslint": "^4.18.2",
     "kentico-cloud-delivery-typescript-sdk": "^2.5.2"
   },
   "devDependencies": {
