@@ -60,3 +60,5 @@ typings/
 #custom
 coverage
 dist
+
+commands.txt
