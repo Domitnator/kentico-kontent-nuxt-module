@@ -25,7 +25,9 @@ npm i kenticocloud-nuxt-module --save
     'kenticocloud-nuxt-module'
   ],
   kenticocloud: {
-    project_id: 'xxxx-xxx-xxxx-xxxx-xxxxx'
+    projectId: 'xxxx-xxx-xxxx-xxxx-xxxxx',
+    enableAdvancedLogging: false,
+    previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
   },
 ```
 - $deliveryClient is now globally available.
