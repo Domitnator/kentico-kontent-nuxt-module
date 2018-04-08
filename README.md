@@ -37,6 +37,9 @@ npm i kenticocloud-nuxt-module --save
  this.$deliveryClient.items()
     .type('page')
     .get()
-    .subscribe(response => console.log('DeliveryClient Response', response));
+    .toPromise()
+    .then(response => console.log('DeliveryClient Response', response));
 
 ```
+## Note:
+By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the KenticoCloudDeliveryTypeScriptSDK! RxJs operator's are not supported at the moment
