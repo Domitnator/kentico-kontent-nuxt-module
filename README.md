@@ -12,7 +12,7 @@ The module makes it easy to do delivery client api calls via the [Kentico Cloud 
 
 ```
 npm i kenticocloud-nuxt-module --save
-npm i rxjs --save (because this is a peer dependencie of the Kentico Cloud Delivery SDK)
+npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delivery SDK)
 
 ```
 
