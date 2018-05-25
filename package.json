@@ -42,7 +42,7 @@
   "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
   "dependencies": {
     "eslint": "^4.19.1",
-    "kentico-cloud-delivery-typescript-sdk": "^3.1.0"
+    "kentico-cloud-delivery": "^4.0.2"
   },
   "devDependencies": {
     "nuxt-module-builder": "^1.0.0",

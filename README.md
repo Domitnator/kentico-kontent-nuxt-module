@@ -5,7 +5,7 @@ Add kentico cloud super power to your nuxt app
 
 ## Features
 
-The module makes it easy to do delivery client api calls via the [Kentico Cloud Delivery JavaScript / TypeScript SDK](https://github.com/Enngage/KenticoCloudDeliveryTypeScriptSDK/blob/master/README.md).
+The module makes it easy to do delivery client api calls via the [Kentico Cloud Delivery SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/README.md).
 
 ## Quick start
 - Install via npm
@@ -36,10 +36,9 @@ npm i kenticocloud-nuxt-module --save
 
  this.$deliveryClient.items()
     .type('page')
-    .get()
-    .toPromise()
+    .getPromise()
     .then(response => console.log('DeliveryClient Response', response));
 
 ```
 ## Note:
-By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the KenticoCloudDeliveryTypeScriptSDK! RxJs operator's are not supported at the moment
+By default Nuxt can only work with promises. Therefor you always use the "getPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment
