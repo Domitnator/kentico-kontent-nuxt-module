@@ -20,6 +20,9 @@ coverage
 #visual studio code
 .vscode
 
+#personal help file
+.commands
+
 # nyc test coverage
 .nyc_output
 

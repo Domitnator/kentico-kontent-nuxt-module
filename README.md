@@ -12,6 +12,8 @@ The module makes it easy to do delivery client api calls via the [Kentico Cloud 
 
 ```
 npm i kenticocloud-nuxt-module --save
+npm i rxjs --save (because this is a peer dependencie of the Kentico Cloud Delivery SDK)
+
 ```
 
 - Add `kenticocloud-nuxt-module` to `modules` section of `nuxt.config.js`
@@ -41,4 +43,4 @@ npm i kenticocloud-nuxt-module --save
 
 ```
 ## Note:
-By default Nuxt can only work with promises. Therefor you always use the "getPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment
+By default Nuxt can only work with promises. Therefor you always use the "getPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment.
