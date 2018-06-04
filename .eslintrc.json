@@ -1,0 +1,14 @@
+{
+    "extends": "standard",
+    "rules": {
+        "brace-style": "off",
+        "indent": "off",
+        "no-multiple-empty-lines": "off",
+        "operator-linebreak": "off",
+        "semi": [ 2, "always" ],
+        "space-before-function-paren": "off",
+        "no-new": "off",
+        "no-alert": "warn",
+        "no-undef": "warn"
+    }
+}

@@ -68,3 +68,5 @@ coverage
 dist
 
 commands.txt
+
+/dist
