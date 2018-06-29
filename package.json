@@ -1,6 +1,6 @@
 {
   "name": "kenticocloud-nuxt-module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Add Kentico Cloud super power to your nuxt app",
   "main": "lib/module.js",
   "directories": {
@@ -43,8 +43,8 @@
   },
   "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
   "dependencies": {
-    "kentico-cloud-delivery": "^4.0.2",
-    "moment": "^2.22.1"
+    "kentico-cloud-delivery": "^4.1.0",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
     "babel-plugin-external-helpers": "^6.22.0",
