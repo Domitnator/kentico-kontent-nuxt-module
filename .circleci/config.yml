@@ -23,6 +23,9 @@ jobs:
           paths:
             - "node_modules"
 
+      # build
+      - run: yarn build
+
       # Test
       - run: yarn test
       
