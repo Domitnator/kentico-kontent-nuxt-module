@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 import chai, { expect, should } from 'chai';
 import CacheService from '../lib/services/CacheService';
 import chaiAsPromised from 'chai-as-promised';
