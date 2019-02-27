@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
   "dependencies": {
-    "kentico-cloud-delivery": "^5.3.2"
+    "kentico-cloud-delivery": "^5.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
