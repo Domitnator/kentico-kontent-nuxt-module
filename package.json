@@ -1,6 +1,6 @@
 {
   "name": "kenticocloud-nuxt-module",
-  "version": "1.0.0-beta",
+  "version": "1.0.0-release",
   "description": "Add Kentico Cloud super power to your nuxt app",
   "main": "lib/module.js",
   "directories": {
