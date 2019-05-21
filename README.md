@@ -40,12 +40,12 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delive
 
  this.$deliveryClient.items()
     .type('page')
-    .getPromise()
+    .toPromise()
     .then(response => console.log('DeliveryClient Response', response));
 
 ```
 ## Note:
-By default Nuxt can only work with promises. Therefor you always use the "getPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment.
+By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment.
 
 ## Caching
 API calls can be "cached" (they will be stored in memory) client side via the "viaCache" method.
