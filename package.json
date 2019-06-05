@@ -19,7 +19,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "tag": "next"
-},
+  },
   "eslintIgnore": [
     "lib/templates/*.*"
   ],
@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
   "dependencies": {
-    "kentico-cloud-delivery": "6.0.0-beta.8"
+    "kentico-cloud-delivery": "6.0.0-beta.10"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
