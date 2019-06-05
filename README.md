@@ -31,7 +31,8 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delive
   kenticocloud: {
     projectId: 'xxxx-xxx-xxxx-xxxx-xxxxx',
     enableAdvancedLogging: false,
-    previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    enablePreviewMode: true
   },
 ```
 - $deliveryClient is now globally available.
