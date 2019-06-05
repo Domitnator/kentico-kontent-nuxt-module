@@ -31,7 +31,11 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delive
   kenticocloud: {
     projectId: 'xxxx-xxx-xxxx-xxxx-xxxxx',
     enableAdvancedLogging: false,
-    previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    enablePreviewMode: true,
+    baseUrl: 'https://custom.uri/api/KenticoCloudProxy',
+    securedApiKey: 'xxx',
+    enableSecuredMode: true
   },
 ```
 - $deliveryClient is now globally available.
@@ -58,3 +62,30 @@ API calls can be "cached" (they will be stored in memory) client side via the "v
 
 ```
 
+## Extending
+
+If you need to customize the Kentico Cloud Delivery SDK by registering interceptors and changing global config, you have to create a nuxt plugin.
+
+### nuxt.config.js
+```
+{
+  modules: [
+    'kenticocloud-nuxt-module',
+  ],
+
+  plugins: [
+    '~/plugins/kenticocloudNuxtModule'
+  ]
+}
+```
+
+### plugins/kenticocloudNuxtModule.js
+```
+export default function ({ store, $deliveryClient }) {
+    $deliveryClient.config.globalHeaders = (queryConfig) => {
+        let headers = [];
+        headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
+        return headers;
+      }
+  }
+```
