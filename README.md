@@ -5,6 +5,9 @@
 # kenticocloud-nuxt-module
 Add kentico cloud super power to your nuxt app
 
+### ** Update: Beta 6
+Want to use the new Kentico Cloud Delivery Beta 6 already? Then switch to this branche: https://github.com/Domitnator/kenticocloud-nuxt-module/tree/UpgradeToBeta6 (which is als available at NPM: https://www.npmjs.com/package/kenticocloud-nuxt-module/v/2.1.0)
+
 ## Features
 
 The module makes it easy to do delivery client api calls via the [Kentico Cloud Delivery SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/README.md).
