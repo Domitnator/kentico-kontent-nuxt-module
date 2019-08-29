@@ -63,6 +63,9 @@ typings/
 # dotenv environment variables file
 .env
 
+# visual studio 2019
+.vs
+
 #custom
 coverage
 dist

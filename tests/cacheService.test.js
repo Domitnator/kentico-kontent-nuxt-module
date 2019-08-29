@@ -8,7 +8,7 @@ should();
 chai.use(chaiAsPromised);
 
 const query = {
-    getPromise: () => {
+    toPromise: () => {
         return new Promise(function (resolve, reject) {
             resolve('fake data');
         });
@@ -40,7 +40,7 @@ describe('Test the behavior of the CacheService', function () {
             expect(s).to.equal(null);
             });
         });
-        it('viaCache method returns response from \'getPromise\'', () => {
+        it('viaCache method returns response from \'toPromise\'', () => {
             let service = new CacheService([]);
 
             return service.viaCache(query, 10, 'key1', false).then(s => {
