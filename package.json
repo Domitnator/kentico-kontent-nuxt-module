@@ -13,12 +13,6 @@
     "test": "mocha tests/*.js --require @babel/register --reporter spec || exit 0",
     "posttest": "eslint lib tests"
   },
-  "release": {
-    "branch": "master"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "eslintIgnore": [
     "lib/templates/*.*"
   ],
