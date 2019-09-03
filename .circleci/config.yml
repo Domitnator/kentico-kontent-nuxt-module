@@ -33,3 +33,4 @@ jobs:
       - run:
           name: release
           command: npm run semantic-release --dry-run || true
+          secrets: [ npm_token, gh_token ]
