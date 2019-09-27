@@ -2,23 +2,23 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![NPM](https://nodei.co/npm/kenticocloud-nuxt-module.png?mini=true)](https://npmjs.org/package/kenticocloud-nuxt-module)
 
-# kenticocloud-nuxt-module
-Add kentico cloud super power to your nuxt app
+# kentico-kontent-nuxt-module
+Add kentico kontent super power to your nuxt app
 
 ## Features
 
-The module makes it easy to do delivery client api calls via the [Kentico Cloud Delivery SDK](https://github.com/Enngage/kentico-cloud-js/blob/master/packages/delivery/README.md).
+The module makes it easy to do delivery client api calls via the [Kentico kontent Delivery SDK](https://github.com/Kentico/kentico-kontent-js/tree/master/packages/delivery/README.md).
 
 ## Quick start
 - Install via npm
 
 ```
-npm i kenticocloud-nuxt-module --save
-npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delivery SDK)
+npm i kentico-kontent-nuxt-module --save
+npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Delivery SDK)
 
 ```
 
-- Add `kenticocloud-nuxt-module` to `modules` section of `nuxt.config.js`
+- Add `kentico-kontent-nuxt-module` to `modules` section of `nuxt.config.js`
 
 ```js
 
@@ -26,14 +26,14 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delive
   ** Nuxt.js modules
   */
   modules: [
-    'kenticocloud-nuxt-module'
+    'kentico-kontent-nuxt-module'
   ],
-  kenticocloud: {
+  kenticokontent: {
     projectId: 'xxxx-xxx-xxxx-xxxx-xxxxx',
     enableAdvancedLogging: false,
     previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
     enablePreviewMode: true,
-    baseUrl: 'https://custom.uri/api/KenticoCloudProxy',
+    baseUrl: 'https://custom.uri/api/KenticoKontentProxy',
     securedApiKey: 'xxx',
     enableSecuredMode: true
   },
@@ -49,7 +49,7 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Cloud Delive
 
 ```
 ## Note:
-By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Cloud Delivery SDK! RxJs operator's are not supported at the moment.
+By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Kontent Delivery SDK! RxJs operator's are not supported at the moment.
 
 ## Caching
 API calls can be "cached" (they will be stored in memory) client side via the "viaCache" method.
@@ -64,22 +64,22 @@ API calls can be "cached" (they will be stored in memory) client side via the "v
 
 ## Extending
 
-If you need to customize the Kentico Cloud Delivery SDK by registering interceptors and changing global config, you have to create a nuxt plugin.
+If you need to customize the Kentico Kontent Delivery SDK by registering interceptors and changing global config, you have to create a nuxt plugin.
 
 ### nuxt.config.js
 ```
 {
   modules: [
-    'kenticocloud-nuxt-module',
+    'kentico-kontent-nuxt-module',
   ],
 
   plugins: [
-    '~/plugins/kenticocloudNuxtModule'
+    '~/plugins/kenticokontentNuxtModule'
   ]
 }
 ```
 
-### plugins/kenticocloudNuxtModule.js
+### plugins/kenticokontentNuxtModule.js
 ```
 export default function ({ store, $deliveryClient }) {
     $deliveryClient.config.globalHeaders = (queryConfig) => {

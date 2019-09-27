@@ -21,6 +21,6 @@ export default {
         'fs',
         'express',
         'babel-polyfill',
-        'kentico-cloud-delivery'
+        '@kentico/kontent-delivery'
       ]
 };

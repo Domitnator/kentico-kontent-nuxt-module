@@ -1,7 +1,7 @@
 {
-  "name": "kenticocloud-nuxt-module",
+  "name": "kentico-kontent-nuxt-module",
   "version": "1.0.0-release",
-  "description": "Add Kentico Cloud super power to your nuxt app",
+  "description": "Add Kentico Kontent super power to your nuxt app",
   "main": "lib/module.js",
   "directories": {
     "lib": "lib",
@@ -18,13 +18,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Domitnator/kenticocloud-nuxt-module.git"
+    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module.git"
   },
   "keywords": [
     "nuxt",
     "kentico",
-    "cloud",
-    "vuejs"
+    "kontent",
+    "vuejs",
+    "nuxtjs"
   ],
   "files": [
     "lib",
@@ -39,11 +40,11 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Domitnator/kenticocloud-nuxt-module/issues"
+    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module/issues"
   },
-  "homepage": "https://github.com/Domitnator/kenticocloud-nuxt-module#readme",
+  "homepage": "https://github.com/Domitnator/kentico-kontent-nuxt-module#readme",
   "dependencies": {
-    "kentico-cloud-delivery": "^6.2.0"
+    "@kentico/kontent-delivery": "^7.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
