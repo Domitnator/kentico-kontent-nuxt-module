@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/Domitnator/kentico-kontent-nuxt-module.svg?style=svg&circle-token=ca67cac592202e6584670a87c3ace63abe9ef36a)](https://circleci.com/gh/Domitnator/kentico-kontent-nuxt-module)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![NPM](https://nodei.co/npm/kenticocloud-nuxt-module.png?mini=true)](https://npmjs.org/package/kenticocloud-nuxt-module)
+[![NPM](https://nodei.co/npm/kentico-kontent-nuxt-module.png?mini=true)](https://npmjs.org/package/kentico-kontent-nuxt-module)
 
 # kentico-kontent-nuxt-module
 Add kentico kontent super power to your nuxt app
