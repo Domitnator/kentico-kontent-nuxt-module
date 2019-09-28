@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/kentico-kontent-nuxt-module.png?mini=true)](https://npmjs.org/package/kentico-kontent-nuxt-module)
 
 # kentico-kontent-nuxt-module
-Add kentico kontent super power to your nuxt app
+Add Kentico Kontent super power to your nuxt app
 
 ## Features
 
