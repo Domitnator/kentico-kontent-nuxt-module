@@ -7,7 +7,7 @@ Add Kentico Kontent super power to your nuxt app
 
 ## Features
 
-The module makes it easy to do delivery client api calls via the [Kentico kontent Delivery SDK](https://github.com/Kentico/kentico-kontent-js/tree/master/packages/delivery/README.md).
+The module makes it easy to do delivery client api calls via the [Kentico kontent Delivery SDK](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/readme.md).
 
 ## Quick start
 - Install via npm
