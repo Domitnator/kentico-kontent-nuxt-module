@@ -29,26 +29,26 @@ describe('Test the behavior of the CacheService', function () {
          expect(function() { new CacheService(); }).to.throw('The supplied settings are not an array of cache entries!');
     });
     it('CacheService is created when called with array', function () {
-        let service = new CacheService([]);
+        const service = new CacheService([]);
         expect(service.cacheEntries).not.equal([]);
     });
 
     describe('Test the behavior of the viaCache method', function () {
         it('viaCache method return null when called with no parameters', () => {
-        let service = new CacheService([]);
+            const service = new CacheService([]);
         return service.viaCache().then(s => {
             expect(s).to.equal(null);
             });
         });
         it('viaCache method returns response from \'toPromise\'', () => {
-            let service = new CacheService([]);
+            const service = new CacheService([]);
 
             return service.viaCache(query, 10, 'key1', false).then(s => {
                 expect(s).to.equal('fake data');
             });
         });
         it('viaCache method adds two cache entry', async () => {
-            let service = new CacheService([]);
+            const service = new CacheService([]);
 
             await service.viaCache(query, 10, 'key1', false).then(s => {
                 expect(s).to.equal('fake data');
@@ -66,7 +66,7 @@ describe('Test the behavior of the CacheService', function () {
             expect(service.cacheEntries[1].seconds).to.equal(30);
         });
         it('viaCache return result from cache when cache seconds is not expired', async () => {
-            let service = new CacheService([]);
+            const service = new CacheService([]);
 
             await service.viaCache(query, 10, 'key1', false).then(s => {
                 expect(s).to.equal('fake data');
@@ -84,7 +84,7 @@ describe('Test the behavior of the CacheService', function () {
             expect(cacheTimestamp1).to.equal(cacheTimestamp2);
         });
         it('viaCache method updates cache entry when cache seconds is expired', async () => {
-            let service = new CacheService([]);
+            const service = new CacheService([]);
 
             await service.viaCache(query, 2, 'key1', false).then(s => {
                 expect(s).to.equal('fake data');
