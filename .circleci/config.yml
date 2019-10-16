@@ -12,7 +12,7 @@ jobs:
       - run:
           name: Install node@11.10.1
           command: |
-           ./load-nvm.sh
+           ./.circleci/load-nvm.sh
             nvm install v11.10.1
             nvm alias default v11.10.1
       
