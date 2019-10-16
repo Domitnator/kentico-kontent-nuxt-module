@@ -9,8 +9,8 @@ jobs:
       - checkout
 
       - run:
-        name: Check current version of node
-        command: node -v
+          name: Check current version of node
+          command: node -v
 
       # Restore cache
       - restore_cache:
