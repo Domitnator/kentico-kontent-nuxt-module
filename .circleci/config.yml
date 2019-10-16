@@ -8,18 +8,13 @@ jobs:
       # Checkout repository
       - checkout
 
-      # install node
       - run:
-          name: Install node@11.10.1
+          name: "Update Node.js"
           command: |
-           ./.circleci/load-nvm.sh
-            nvm install v11.10.1
-            nvm alias default v11.10.1
-      
-      # will print node: '11.10.1'
-      - run: |
-          ./load-nvm.sh
-          npm version
+            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+      - run:
+          name: Check current version of node
+          command: node -v
 
       # Restore cache
       - restore_cache:
