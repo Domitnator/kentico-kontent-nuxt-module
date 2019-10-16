@@ -8,6 +8,19 @@ jobs:
       # Checkout repository
       - checkout
 
+      # install node
+      - run:
+          name: Install node@11.10.1
+          command: |
+           ./load-nvm.sh
+            nvm install v11.10.1
+            nvm alias default v11.10.1
+      
+      # will print node: '11.10.1'
+      - run: |
+          ./load-nvm.sh
+          npm version
+
       # Restore cache
       - restore_cache:
           key: yarn-{{ checksum "yarn.lock" }}
