@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /usr/src/app
     docker:
-      - image: circleci/node:[11.10.1]
+      - image: circleci/node:11.10.1
     steps:
       # Checkout repository
       - checkout
