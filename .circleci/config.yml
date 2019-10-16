@@ -3,18 +3,14 @@ jobs:
   build:
     working_directory: /usr/src/app
     docker:
-      - image: banian/node
+      - image: circleci/node:[11.10.1]
     steps:
       # Checkout repository
       - checkout
 
       - run:
-          name: "Update Node.js"
-          command: |
-            curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
-      - run:
-          name: Check current version of node
-          command: node -v
+        name: Check current version of node
+        command: node -v
 
       # Restore cache
       - restore_cache:
