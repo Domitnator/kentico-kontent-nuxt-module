@@ -89,3 +89,31 @@ export default function ({ store, $deliveryClient }) {
       }
   }
 ```
+
+### Type Resolvers
+
+Type resolvers can also be registered by using a nuxt plugin:
+
+### plugins/kenticokontentNuxtModule.js
+```
+import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
+
+class Page extends ContentItem {
+    constructor() {
+        super({
+            richTextResolver: (item, context) => {
+                // todo: implement
+            },
+            urlSlugResolver: (link, context) => {
+                // todo: implement
+            }
+        });
+    }
+}
+
+export default function ({ store, app, $deliveryClient }) {
+    $deliveryClient.config.typeResolvers = [
+        new TypeResolver('page', () => new Page())
+    ]
+}
+```
