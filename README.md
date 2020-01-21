@@ -48,7 +48,7 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     .then(response => console.log('DeliveryClient Response', response));
 
 ```
-## Note:
+### Note:
 By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Kontent Delivery SDK! RxJs operator's are not supported at the moment.
 
 ## Generating
