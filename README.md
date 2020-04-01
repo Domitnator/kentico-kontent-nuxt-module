@@ -48,8 +48,19 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     .then(response => console.log('DeliveryClient Response', response));
 
 ```
-## Note:
+### Note:
 By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Kontent Delivery SDK! RxJs operator's are not supported at the moment.
+
+## Generating
+When using a static generated deployment you may need to use the [items-feed](https://docs.kontent.ai/reference/api-changelog#a-delivery-api-limitation) endpoint when generating your site (because the items endpoint has a rate limitation).
+
+```javascript
+
+ this.$deliveryClient.itemsFeedAll()
+    .toPromise()
+    .then(response => console.log('DeliveryClient Response', response));
+
+```
 
 ## Caching
 API calls can be "cached" (they will be stored in memory) client side via the "viaCache" method.
