@@ -57,7 +57,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "standard": "^14.3.3",
-    "mocha": "^6.2.2",
+    "mocha": "^7.1.1",
     "rollup": "^1.27.12",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
