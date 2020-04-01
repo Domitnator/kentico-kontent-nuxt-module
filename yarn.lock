@@ -797,19 +797,19 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@kentico/kontent-core@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-5.0.1.tgz#b15a23e3ef0f8526a73643f9194c2d261e583185"
-  integrity sha512-POv48XnsYj1Azc5/zlkP82ZjpeiEMUFy84wYDmz8qM90KwoYAem9j3MNpzBBD36YlqYANB6zQzMlBMfQRQTfEg==
+"@kentico/kontent-core@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-core/-/kontent-core-6.0.0.tgz#548c7384aacb93a41b896b9740e322879c262194"
+  integrity sha512-9IS8UdGGc3/7N5GzsWo9v3F1RT/zxSFELAYNgVC2NzXr9+Y9EiggsaldwD7jQTzvtUEHcRGpWtDlQmvfzQ3qnA==
   dependencies:
     axios "0.19.0"
 
-"@kentico/kontent-delivery@^8.2.0":
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-8.2.0.tgz#6c3feb84e8d934a94c085210ceea492ed6eeb9c9"
-  integrity sha512-M7HBv18dCxDLpFRHRnjm2xcvBq9nD/LDuHBpfrwtr4beGJ+8QWr/u8AAhBJXM2uLKn4M/dt/f35HvzpPdRB/zA==
+"@kentico/kontent-delivery@^9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@kentico/kontent-delivery/-/kontent-delivery-9.1.0.tgz#e99c73af9c5f7b4afcb599f884ab3fd17b9b396e"
+  integrity sha512-YD0dew75ULHTEQkX4cW4JygIfMZhzqCpizWSblu8VyqNqxO5z2gS0l5vg7N7XMmJtOkOnxyk4gtSr/IhzI0WVQ==
   dependencies:
-    "@kentico/kontent-core" "5.0.1"
+    "@kentico/kontent-core" "6.0.0"
     parse5 "5.1.1"
     reflect-metadata "0.1.13"
 

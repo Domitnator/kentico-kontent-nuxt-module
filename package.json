@@ -44,7 +44,7 @@
   },
   "homepage": "https://github.com/Domitnator/kentico-kontent-nuxt-module#readme",
   "dependencies": {
-    "@kentico/kontent-delivery": "^8.2.0"
+    "@kentico/kontent-delivery": "^9.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
