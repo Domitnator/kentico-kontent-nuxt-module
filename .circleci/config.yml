@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/kenticokontentnuxtmodule
     docker:
-      - image: circleci/node:11.10.1
+      - image: circleci/node:15.0.1
     steps:
       # Checkout repository
       - checkout
