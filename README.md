@@ -21,7 +21,6 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 - Add `kentico-kontent-nuxt-module` to `modules` section of `nuxt.config.js`
 
 ```js
-
   /*
   ** Nuxt.js modules
   */
@@ -32,7 +31,9 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     projectId: 'xxxx-xxx-xxxx-xxxx-xxxxx',
     enableAdvancedLogging: false,
     previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    enablePreviewMode: true,
+    globalQueryConfig: {
+			usePreviewMode: true, // Queries the Delivery Preview API.
+		},
     baseUrl: 'https://custom.uri/api/KenticoKontentProxy',
     securedApiKey: 'xxx',
     enableSecuredMode: true
