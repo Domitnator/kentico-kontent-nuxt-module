@@ -33,9 +33,10 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     previewApiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxx',
     globalQueryConfig: {
 			usePreviewMode: true, // Queries the Delivery Preview API.
+      useSecureMode: false,
 		},
     baseUrl: 'https://custom.uri/api/KenticoKontentProxy',
-    securedApiKey: 'xxx',
+    secureApiKey: 'xxx',
     enableSecuredMode: true
   },
 ```
