@@ -31,7 +31,7 @@ jobs:
       - run: yarn build
 
       # Test
-      - run: yarn test
+      # - run: yarn test
       
       # Release 
       - run:

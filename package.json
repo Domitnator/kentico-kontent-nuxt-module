@@ -2,24 +2,6 @@
   "name": "kentico-kontent-nuxt-module",
   "version": "1.0.0-release",
   "description": "Add Kentico Kontent super power to your nuxt app",
-  "main": "lib/module.js",
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "scripts": {
-    "semantic-release": "semantic-release",
-    "build": "rollup -c",
-    "test": "mocha tests/*.js --require @babel/register --reporter spec || exit 0",
-    "posttest": "standard lib/module.js lib/templates/plugin.template.js lib/services/*.js tests/*.js --fix"
-  },
-  "eslintIgnore": [
-    "lib/templates/*.*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module.git"
-  },
   "keywords": [
     "nuxt",
     "kentico",
@@ -27,43 +9,53 @@
     "vuejs",
     "nuxtjs"
   ],
-  "files": [
-    "lib",
-    "src",
-    "dist"
-  ],
+  "homepage": "https://github.com/Domitnator/kentico-kontent-nuxt-module#readme",
+  "bugs": {
+    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module.git"
+  },
+  "license": "ISC",
   "author": "Alfred Brockotter",
   "contributors": [
     {
       "name": "Alfred Brockotter <alfred@domitnator.nl>"
     }
   ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Domitnator/kentico-kontent-nuxt-module/issues"
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "siroc build && mkdist --src src/runtime --dist dist/runtime --ext=js",
+    "lint": "eslint --ext .js,.vue,.ts .",
+    "semantic-release": "semantic-release",
+    "test": "yarn lint && jest"
   },
-  "homepage": "https://github.com/Domitnator/kentico-kontent-nuxt-module#readme",
   "dependencies": {
-    "@kentico/kontent-delivery": "^10.4.1"
+    "@kentico/kontent-delivery": "^10.4.1",
+    "chalk": "^4.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.1",
-    "@babel/preset-env": "^7.13.5",
-    "@babel/register": "^7.13.0",
-    "@semantic-release/npm": "^7.1.1",
-    "babel-plugin-syntax-async-functions": "^6.13.0",
-    "babel-plugin-transform-regenerator": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "chai": "^4.3.0",
-    "chai-as-promised": "^7.1.1",
-    "mocha": "^8.3.0",
-    "rollup": "^2.39.1",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
-    "semantic-release": "^17.4.2",
-    "standard": "^16.0.3"
+    "@babel/core": "latest",
+    "@babel/plugin-transform-runtime": "latest",
+    "@babel/preset-env": "latest",
+    "@babel/preset-typescript": "latest",
+    "@cld-apis/types": "^0.1.3",
+    "@nuxt/test-utils": "latest",
+    "@nuxt/types": "latest",
+    "@nuxt/typescript-build": "^2.0.5",
+    "@nuxt/typescript-runtime": "latest",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "@types/jest": "latest",
+    "eslint": "latest",
+    "jest": "latest",
+    "nuxt": "latest",
+    "siroc": "latest",
+    "standard-version": "latest"
   }
 }
