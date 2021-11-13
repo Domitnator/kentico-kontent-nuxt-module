@@ -30,7 +30,7 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
 
   const runtimeDir = resolve(__dirname, 'runtime')
   this.nuxt.options.alias['~deliveryclientruntime'] = runtimeDir
-  this.nuxt.options.build.transpile.push(runtimeDir, 'kentico-kontent-nuxt-module-ts')
+  this.nuxt.options.build.transpile.push(runtimeDir, 'kentico-kontent-nuxt-module')
 
   // Add configuration plugin
   this.addPlugin({
@@ -42,7 +42,7 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
   // Add plugin
   this.addPlugin({
     src: resolve(__dirname, './runtime/plugin.template.js'),
-    fileName: 'deliveryclient/kentico-kontent-nuxt-module-ts.js',
+    fileName: 'deliveryclient/kentico-kontent-nuxt-module.js',
     options
   })
 }
