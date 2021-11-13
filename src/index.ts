@@ -49,25 +49,27 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
 
 declare module '@nuxt/types' {
   interface Context {
-    $deliveryclient: NuxtDeliveryClient;
+    $deliveryclient: NuxtDeliveryClient
   }
 
   interface NuxtAppOptions {
-    $deliveryclient: NuxtDeliveryClient;
+    $deliveryclient: NuxtDeliveryClient
   }
 
   interface Configuration {
-    deliveryclient?: IDeliveryClientConfig;
+    deliveryclient?: IDeliveryClientConfig
   }
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $deliveryclient: NuxtDeliveryClient
+    $deliveryclient: NuxtDeliveryClient;
   }
 }
 
-const meta = require('../package.json')
+export { NuxtDeliveryClient }
 
-export { NuxtDeliveryClient, deliveryClientModule as default, meta };
+export default deliveryClientModule
+
+export const meta = require('../package.json')
 
