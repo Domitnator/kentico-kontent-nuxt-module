@@ -1,13 +1,13 @@
-import { setupTest, get } from '@nuxt/test-utils'
+// import { setupTest, get } from '@nuxt/test-utils'
 
-describe('module', () => {
-  setupTest({
-  })
+// describe('module', () => {
+//   setupTest({
+//   })
 
-  test('/ (pink)', async () => {
-    var test = true;
+//   test('/ (pink)', async () => {
+//     var test = true;
 
-    expect(test).toBe(true);
-  })
+//     expect(test).toBe(true);
+//   })
 
-})
+// })
