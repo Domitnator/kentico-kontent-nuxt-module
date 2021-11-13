@@ -52,13 +52,13 @@
     "@nuxt/typescript-build": "^2.0.5",
     "@nuxt/typescript-runtime": "latest",
     "@nuxtjs/eslint-config-typescript": "latest",
+    "@semantic-release/npm": "8.0.3",
     "@types/jest": "latest",
     "eslint": "latest",
     "jest": "latest",
     "nuxt": "latest",
-    "siroc": "latest",
-    "standard-version": "latest",
     "semantic-release": "^18.0.0",
-    "@semantic-release/npm": "8.0.3"
+    "siroc": "latest",
+    "standard-version": "latest"
   }
 }
