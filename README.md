@@ -53,6 +53,25 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 ### Note:
 By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Kontent Delivery SDK! RxJs operator's are not supported at the moment.
 
+# Typescript
+
+Since version 7 the kentico-kontent-nuxt-module has typescript support! 
+
+Add the types to your "types" array in tsconfig.json after the @nuxt/types (Nuxt 2.9.0+) or @nuxt/vue-app entry
+
+```json
+
+ {
+  "compilerOptions": {
+    "types": [
+      "@nuxt/types",
+      "kentico-kontent-nuxt-module"
+    ]
+  }
+}
+
+```
+
 ## Generating
 When using a static generated deployment you may need to use the [items-feed](https://docs.kontent.ai/reference/api-changelog#a-delivery-api-limitation) endpoint when generating your site (because the items endpoint has a rate limitation).
 
