@@ -114,7 +114,7 @@ If you need to customize the Kentico Kontent Delivery SDK by registering interce
 
 ### plugins/kenticokontentNuxtModule.js
 
-> Version 7.x.x
+> Version >7.x.x
 
 ``` javascript
 export default function ({ store, $deliveryClient }) {
@@ -126,7 +126,7 @@ export default function ({ store, $deliveryClient }) {
   }
 ```
 
-< Version 7
+> Version <7.0.0
 
 ``` javascript
 export default function ({ store, $deliveryClient }) {
@@ -144,7 +144,7 @@ Type resolvers can also be registered by using a nuxt plugin:
 
 ### plugins/kenticokontentNuxtModule.js
 
-> Version 7.x.x
+> Version >7.x.x
 
 ``` javascript
 import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
@@ -169,7 +169,7 @@ export default function ({ store, app, $deliveryClient }) {
 }
 ```
 
-< Version 7
+> Version <7.0.0
 
 ``` javascript
 import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
