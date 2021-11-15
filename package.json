@@ -38,8 +38,7 @@
   },
   "dependencies": {
     "@kentico/kontent-delivery": "^10.4.1",
-    "chalk": "^4.1.0",
-    "semantic-release": "^18.0.0"
+    "chalk": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "latest",
