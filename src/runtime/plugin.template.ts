@@ -1,5 +1,4 @@
 import { Plugin } from '@nuxt/types'
-import { DeliveryClient, ContentItem, MultipleItemQuery } from "@kentico/kontent-delivery"
 import { NuxtDeliveryClient } from '~deliveryclientruntime/NuxtDeliveryClient'
 // import CacheService from "~deliveryclientruntime/cacheService"
 
@@ -40,9 +39,6 @@ declare module 'vuex/types/index' {
 }
 
 const deliveryClientPlugin: Plugin = (context, inject) => {
-  console.log('Initializing plugin')
-  console.log('configuration:', config)
-  
   const deliveryClient = new NuxtDeliveryClient(config.kenticokontent);
   
   inject('deliveryclient', deliveryClient)
