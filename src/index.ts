@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { resolve } from 'path'
 import { Module, Plugin  } from '@nuxt/types'
-import { ContentItem, DeliveryClient, IDeliveryClientConfig, MultipleItemQuery } from '@kentico/kontent-delivery'
+import { IDeliveryClientConfig } from '@kentico/kontent-delivery'
 import defu from 'defu'
 import { logger } from './utilties/logger'
 import chalk from 'chalk'
@@ -20,8 +20,6 @@ export interface ModuleOptions extends RequireOne<IDeliveryClientConfig, 'projec
 
 const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOptions) {
   const options = defu<ModuleOptions, IDeliveryClientConfig>(this.options.kenticokontent, moduleOptions)
-
-  console.log("Module is initializing...")
 
   if (!options.projectId) {
     logger.error(`You need to provide ${chalk.yellow('projectId')} to set up Kentico Kontent. See 👉 https://github.com/Domitnator/kentico-kontent-nuxt-module for more info.`)
