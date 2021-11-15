@@ -87,6 +87,7 @@ When using a static generated deployment you may need to use the [items-feed](ht
 API calls can be "cached" (they will be stored in memory) client side via the "viaCache" method.
 
 ```javascript
+
  const query =  this.$deliveryClient.items().type('page');
  const cacheSeconds = 30;
  this.$deliveryClient.viaCache(query, cacheSeconds)
@@ -99,7 +100,7 @@ API calls can be "cached" (they will be stored in memory) client side via the "v
 If you need to customize the Kentico Kontent Delivery SDK by registering interceptors and changing global config, you have to create a nuxt plugin.
 
 ### nuxt.config.js
-```
+``` json
 {
   modules: [
     'kentico-kontent-nuxt-module',
@@ -112,7 +113,22 @@ If you need to customize the Kentico Kontent Delivery SDK by registering interce
 ```
 
 ### plugins/kenticokontentNuxtModule.js
+
+> Version 7.x.x
+
+``` javascript
+export default function ({ store, $deliveryClient }) {
+    $deliveryclient.deliveryClient.config.globalHeaders = (queryConfig) => {
+        let headers = [];
+        headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
+        return headers;
+      }
+  }
 ```
+
+< Version 7
+
+``` javascript
 export default function ({ store, $deliveryClient }) {
     $deliveryClient.config.globalHeaders = (queryConfig) => {
         let headers = [];
@@ -127,7 +143,35 @@ export default function ({ store, $deliveryClient }) {
 Type resolvers can also be registered by using a nuxt plugin:
 
 ### plugins/kenticokontentNuxtModule.js
+
+> Version 7.x.x
+
+``` javascript
+import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
+
+class Page extends ContentItem {
+    constructor() {
+        super({
+            richTextResolver: (item, context) => {
+                // todo: implement
+            },
+            urlSlugResolver: (link, context) => {
+                // todo: implement
+            }
+        });
+    }
+}
+
+export default function ({ store, app, $deliveryClient }) {
+    $deliveryClient.deliveryClient.config.typeResolvers = [
+        new TypeResolver('page', () => new Page())
+    ]
+}
 ```
+
+< Version 7
+
+``` javascript
 import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
 
 class Page extends ContentItem {
