@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/kentico-kontent-nuxt-module.png?mini=true)](https://npmjs.org/package/kentico-kontent-nuxt-module)
 
 # kentico-kontent-nuxt-module
-Add Kentico Kontent super power to your nuxt app
+Add Kentico Kontent super power to your nuxt app :fire:
 
 ## Features
 
@@ -20,7 +20,7 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 
 - Add `kentico-kontent-nuxt-module` to `modules` section of `nuxt.config.js`
 
-```js
+```json
   /*
   ** Nuxt.js modules
   */
@@ -40,6 +40,9 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     enableSecuredMode: true
   },
 ```
+> Note: See [the client configuration section](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the Kentico Kontent Delivery SDK for all available configuration options.
+
+
 - $deliveryClient is now globally available.
 
 ```javascript
