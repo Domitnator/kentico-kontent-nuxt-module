@@ -4,7 +4,8 @@ import { NuxtDeliveryClient } from '~deliveryclientruntime/NuxtDeliveryClient'
 // Default configuration
 let config = {
   kenticokontent: {
-    projectId: ''
+    projectId: '',
+    globalQueryConfig: {}
   }
 }
 
@@ -38,8 +39,27 @@ declare module 'vuex/types/index' {
 }
 
 const deliveryClientPlugin: Plugin = (context, inject) => {
-  const deliveryClient = new NuxtDeliveryClient(config.kenticokontent);
+ var kcSourceHeader = { header: 'X-KC-SOURCE', value: 'kentico-kontent-nuxt-module' };
   
+  if(config.kenticokontent.globalQueryConfig){
+    config.kenticokontent.globalQueryConfig = Object.assign({}, config.kenticokontent.globalQueryConfig, {
+        customHeaders: [
+          kcSourceHeader
+        ]
+    });
+  }
+  else{
+    config.kenticokontent = Object.assign({}, config.kenticokontent, {
+      globalQueryConfig: {
+        customHeaders: [
+          kcSourceHeader
+        ]
+      }
+    });
+  }
+
+  const deliveryClient = new NuxtDeliveryClient(config.kenticokontent);
+
   inject('deliveryclient', deliveryClient)
 }
 
