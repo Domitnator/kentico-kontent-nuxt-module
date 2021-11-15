@@ -1,12 +1,11 @@
 import { Plugin } from '@nuxt/types'
-import { DeliveryClient, ContentItem, MultipleItemQuery } from "@kentico/kontent-delivery"
 import { NuxtDeliveryClient } from '~deliveryclientruntime/NuxtDeliveryClient'
-// import CacheService from "~deliveryclientruntime/cacheService"
 
 // Default configuration
 let config = {
   kenticokontent: {
-    projectId: ''
+    projectId: '',
+    globalQueryConfig: {}
   }
 }
 
@@ -40,11 +39,27 @@ declare module 'vuex/types/index' {
 }
 
 const deliveryClientPlugin: Plugin = (context, inject) => {
-  console.log('Initializing plugin')
-  console.log('configuration:', config)
+ var kcSourceHeader = { header: 'X-KC-SOURCE', value: 'kentico-kontent-nuxt-module' };
   
+  if(config.kenticokontent.globalQueryConfig){
+    config.kenticokontent.globalQueryConfig = Object.assign({}, config.kenticokontent.globalQueryConfig, {
+        customHeaders: [
+          kcSourceHeader
+        ]
+    });
+  }
+  else{
+    config.kenticokontent = Object.assign({}, config.kenticokontent, {
+      globalQueryConfig: {
+        customHeaders: [
+          kcSourceHeader
+        ]
+      }
+    });
+  }
+
   const deliveryClient = new NuxtDeliveryClient(config.kenticokontent);
-  
+
   inject('deliveryclient', deliveryClient)
 }
 

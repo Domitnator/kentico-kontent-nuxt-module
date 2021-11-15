@@ -3,7 +3,7 @@
 [![NPM](https://nodei.co/npm/kentico-kontent-nuxt-module.png?mini=true)](https://npmjs.org/package/kentico-kontent-nuxt-module)
 
 # kentico-kontent-nuxt-module
-Add Kentico Kontent super power to your nuxt app
+Add Kentico Kontent super power to your nuxt app :fire:
 
 ## Features
 
@@ -20,7 +20,7 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 
 - Add `kentico-kontent-nuxt-module` to `modules` section of `nuxt.config.js`
 
-```js
+```json
   /*
   ** Nuxt.js modules
   */
@@ -40,6 +40,9 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
     enableSecuredMode: true
   },
 ```
+> Note: See [the client configuration section](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the Kentico Kontent Delivery SDK for all available configuration options.
+
+
 - $deliveryClient is now globally available.
 
 ```javascript
@@ -52,6 +55,25 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 ```
 ### Note:
 By default Nuxt can only work with promises. Therefor you always use the "toPromise" method provided by the Kentico Kontent Delivery SDK! RxJs operator's are not supported at the moment.
+
+# Typescript
+
+Since version 7 the kentico-kontent-nuxt-module has typescript support! 
+
+Add the types to your "types" array in tsconfig.json after the @nuxt/types (Nuxt 2.9.0+) or @nuxt/vue-app entry
+
+```json
+
+ {
+  "compilerOptions": {
+    "types": [
+      "@nuxt/types",
+      "kentico-kontent-nuxt-module"
+    ]
+  }
+}
+
+```
 
 ## Generating
 When using a static generated deployment you may need to use the [items-feed](https://docs.kontent.ai/reference/api-changelog#a-delivery-api-limitation) endpoint when generating your site (because the items endpoint has a rate limitation).
@@ -68,6 +90,7 @@ When using a static generated deployment you may need to use the [items-feed](ht
 API calls can be "cached" (they will be stored in memory) client side via the "viaCache" method.
 
 ```javascript
+
  const query =  this.$deliveryClient.items().type('page');
  const cacheSeconds = 30;
  this.$deliveryClient.viaCache(query, cacheSeconds)
@@ -80,7 +103,7 @@ API calls can be "cached" (they will be stored in memory) client side via the "v
 If you need to customize the Kentico Kontent Delivery SDK by registering interceptors and changing global config, you have to create a nuxt plugin.
 
 ### nuxt.config.js
-```
+``` json
 {
   modules: [
     'kentico-kontent-nuxt-module',
@@ -93,7 +116,22 @@ If you need to customize the Kentico Kontent Delivery SDK by registering interce
 ```
 
 ### plugins/kenticokontentNuxtModule.js
+
+> Version >7.x.x
+
+``` javascript
+export default function ({ store, $deliveryClient }) {
+    $deliveryclient.deliveryClient.config.globalHeaders = (queryConfig) => {
+        let headers = [];
+        headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
+        return headers;
+      }
+  }
 ```
+
+> Version <7.0.0
+
+``` javascript
 export default function ({ store, $deliveryClient }) {
     $deliveryClient.config.globalHeaders = (queryConfig) => {
         let headers = [];
@@ -108,7 +146,35 @@ export default function ({ store, $deliveryClient }) {
 Type resolvers can also be registered by using a nuxt plugin:
 
 ### plugins/kenticokontentNuxtModule.js
+
+> Version >7.x.x
+
+``` javascript
+import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
+
+class Page extends ContentItem {
+    constructor() {
+        super({
+            richTextResolver: (item, context) => {
+                // todo: implement
+            },
+            urlSlugResolver: (link, context) => {
+                // todo: implement
+            }
+        });
+    }
+}
+
+export default function ({ store, app, $deliveryClient }) {
+    $deliveryClient.deliveryClient.config.typeResolvers = [
+        new TypeResolver('page', () => new Page())
+    ]
+}
 ```
+
+> Version <7.0.0
+
+``` javascript
 import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
 
 class Page extends ContentItem {

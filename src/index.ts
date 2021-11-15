@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { resolve } from 'path'
 import { Module, Plugin  } from '@nuxt/types'
-import { ContentItem, DeliveryClient, IDeliveryClientConfig, MultipleItemQuery } from '@kentico/kontent-delivery'
+import { IDeliveryClientConfig } from '@kentico/kontent-delivery'
 import defu from 'defu'
 import { logger } from './utilties/logger'
 import chalk from 'chalk'
@@ -21,8 +21,6 @@ export interface ModuleOptions extends RequireOne<IDeliveryClientConfig, 'projec
 const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOptions) {
   const options = defu<ModuleOptions, IDeliveryClientConfig>(this.options.kenticokontent, moduleOptions)
 
-  console.log("Module is initializing...")
-
   if (!options.projectId) {
     logger.error(`You need to provide ${chalk.yellow('projectId')} to set up Kentico Kontent. See 👉 https://github.com/Domitnator/kentico-kontent-nuxt-module for more info.`)
     return
@@ -30,7 +28,7 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
 
   const runtimeDir = resolve(__dirname, 'runtime')
   this.nuxt.options.alias['~deliveryclientruntime'] = runtimeDir
-  this.nuxt.options.build.transpile.push(runtimeDir, 'kentico-kontent-nuxt-module-ts')
+  this.nuxt.options.build.transpile.push(runtimeDir, 'kentico-kontent-nuxt-module')
 
   // Add configuration plugin
   this.addPlugin({
@@ -42,32 +40,34 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
   // Add plugin
   this.addPlugin({
     src: resolve(__dirname, './runtime/plugin.template.js'),
-    fileName: 'deliveryclient/kentico-kontent-nuxt-module-ts.js',
+    fileName: 'deliveryclient/kentico-kontent-nuxt-module.js',
     options
   })
 }
 
 declare module '@nuxt/types' {
   interface Context {
-    $deliveryclient: NuxtDeliveryClient;
+    $deliveryclient: NuxtDeliveryClient
   }
 
   interface NuxtAppOptions {
-    $deliveryclient: NuxtDeliveryClient;
+    $deliveryclient: NuxtDeliveryClient
   }
 
   interface Configuration {
-    deliveryclient?: IDeliveryClientConfig;
+    deliveryclient?: IDeliveryClientConfig
   }
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $deliveryclient: NuxtDeliveryClient
+    $deliveryclient: NuxtDeliveryClient;
   }
 }
 
-const meta = require('../package.json')
+export { NuxtDeliveryClient }
 
-export { NuxtDeliveryClient, deliveryClientModule as default, meta };
+export default deliveryClientModule
+
+export const meta = require('../package.json')
 
