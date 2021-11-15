@@ -1,6 +1,5 @@
 import { Plugin } from '@nuxt/types'
 import { NuxtDeliveryClient } from '~deliveryclientruntime/NuxtDeliveryClient'
-// import CacheService from "~deliveryclientruntime/cacheService"
 
 // Default configuration
 let config = {
