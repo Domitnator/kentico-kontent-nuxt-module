@@ -14,8 +14,6 @@ The module makes it easy to do delivery client api calls via the [Kentico konten
 
 ```
 npm i kentico-kontent-nuxt-module --save
-npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Delivery SDK)
-
 ```
 
 - Add `kentico-kontent-nuxt-module` to `modules` section of `nuxt.config.js`
@@ -43,11 +41,11 @@ npm i rxjs --save (because this is a peer dependency of the Kentico Kontent Deli
 > Note: See [the client configuration section](https://github.com/Kentico/kontent-delivery-sdk-js/blob/master/DOCS.md#client-configuration) of the Kentico Kontent Delivery SDK for all available configuration options.
 
 
-- $deliveryClient is now globally available.
+- $nuxtDeliveryClient is now globally available.
 
 ```javascript
 
- this.$deliveryClient.items()
+ this.$nuxtDeliveryClient.items()
     .type('page')
     .toPromise()
     .then(response => console.log('DeliveryClient Response', response));
@@ -80,7 +78,7 @@ When using a static generated deployment you may need to use the [items-feed](ht
 
 ```javascript
 
- this.$deliveryClient.itemsFeedAll()
+ this.$nuxtDeliveryClient.itemsFeedAll()
     .toPromise()
     .then(response => console.log('DeliveryClient Response', response));
 
@@ -91,9 +89,9 @@ API calls can be "cached" (they will be stored in memory) client side via the "v
 
 ```javascript
 
- const query =  this.$deliveryClient.items().type('page');
+ const query =  this.$nuxtDeliveryClient.items().type('page');
  const cacheSeconds = 30;
- this.$deliveryClient.viaCache(query, cacheSeconds)
+ this.$nuxtDeliveryClient.viaCache(query, cacheSeconds)
         .then(response => console.log('DeliveryClient Response', response));
 
 ```
@@ -117,23 +115,9 @@ If you need to customize the Kentico Kontent Delivery SDK by registering interce
 
 ### plugins/kenticokontentNuxtModule.js
 
-> Version >7.x.x
-
 ``` javascript
-export default function ({ store, $deliveryClient }) {
-    $deliveryclient.deliveryClient.config.globalHeaders = (queryConfig) => {
-        let headers = [];
-        headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
-        return headers;
-      }
-  }
-```
-
-> Version <7.0.0
-
-``` javascript
-export default function ({ store, $deliveryClient }) {
-    $deliveryClient.config.globalHeaders = (queryConfig) => {
+export default function ({ store, $nuxtDeliveryClient }) {
+    $nuxtDeliveryClient.deliveryClient.config.globalHeaders = (queryConfig) => {
         let headers = [];
         headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
         return headers;
@@ -147,8 +131,6 @@ Type resolvers can also be registered by using a nuxt plugin:
 
 ### plugins/kenticokontentNuxtModule.js
 
-> Version >7.x.x
-
 ``` javascript
 import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
 
@@ -165,33 +147,8 @@ class Page extends ContentItem {
     }
 }
 
-export default function ({ store, app, $deliveryClient }) {
-    $deliveryClient.deliveryClient.config.typeResolvers = [
-        new TypeResolver('page', () => new Page())
-    ]
-}
-```
-
-> Version <7.0.0
-
-``` javascript
-import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
-
-class Page extends ContentItem {
-    constructor() {
-        super({
-            richTextResolver: (item, context) => {
-                // todo: implement
-            },
-            urlSlugResolver: (link, context) => {
-                // todo: implement
-            }
-        });
-    }
-}
-
-export default function ({ store, app, $deliveryClient }) {
-    $deliveryClient.config.typeResolvers = [
+export default function ({ store, app, $nuxtDeliveryClient }) {
+    $nuxtDeliveryClient.deliveryClient.config.typeResolvers = [
         new TypeResolver('page', () => new Page())
     ]
 }

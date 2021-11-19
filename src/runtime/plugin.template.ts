@@ -1,5 +1,5 @@
 import { Plugin } from '@nuxt/types'
-import { NuxtDeliveryClient } from '~deliveryclientruntime/NuxtDeliveryClient'
+import { NuxtDeliveryClient } from '~deliveryclientruntime/nuxt-delivery-client'
 
 // Default configuration
 let config = {
@@ -19,22 +19,22 @@ try {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
 }
 
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
   interface Context {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
 }
 
@@ -58,9 +58,9 @@ const deliveryClientPlugin: Plugin = (context, inject) => {
     });
   }
 
-  const deliveryClient = new NuxtDeliveryClient(config.kenticokontent);
+  const nuxtDeliveryClient = new NuxtDeliveryClient(config.kenticokontent);
 
-  inject('deliveryclient', deliveryClient)
+  inject('nuxtDeliveryClient', nuxtDeliveryClient)
 }
 
 export default deliveryClientPlugin

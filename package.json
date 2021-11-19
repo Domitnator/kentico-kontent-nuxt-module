@@ -37,7 +37,7 @@
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "@kentico/kontent-delivery": "^10.4.1",
+    "@kentico/kontent-delivery": "^11.0.0",
     "chalk": "^4.1.0"
   },
   "devDependencies": {

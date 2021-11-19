@@ -1,4 +1,4 @@
-import { ContentItem, IDeliveryClient, ItemResponses, MultipleItemQuery } from "@kentico/kontent-delivery"
+import { Contracts, IContentItem, IContentItemElements, IDeliveryClient, IDeliveryNetworkResponse, MultipleItemsQuery, Responses } from "@kentico/kontent-delivery"
 
 export class CacheService {
     cacheEntries: any[]
@@ -7,7 +7,7 @@ export class CacheService {
       this.cacheEntries = [];
       this.deliveryClient = client;
     }
-    viaCache<TItem extends ContentItem>(query: MultipleItemQuery<TItem>, seconds: number, cacheKey?: string, isServerProcess?: boolean): Promise<ItemResponses.ListContentItemsResponse<TItem>> {
+    viaCache<TContentItem extends IContentItem<IContentItemElements>>(query: MultipleItemsQuery<TContentItem>, seconds: number, cacheKey?: string, isServerProcess?: boolean): Promise<IDeliveryNetworkResponse<Responses.IListContentItemsResponse<TContentItem>, Contracts.IListContentItemsContract>> {
       
        // Always perform a query when on the server
        if (this.cacheEntries && query && isServerProcess) {
@@ -25,7 +25,7 @@ export class CacheService {
   
         // return from cache
         if (cacheEntry && getDiffInSeconds(new Date(), cacheEntry.timestamp) < seconds) {
-          return new Promise<ItemResponses.ListContentItemsResponse<TItem>>((resolve, reject) => {
+          return new Promise<IDeliveryNetworkResponse<Responses.IListContentItemsResponse<TContentItem>, Contracts.IListContentItemsContract>>((resolve, reject) => {
               console.log('viaCache: response taken from cache');
               resolve(cacheEntry.object);
           });
@@ -43,7 +43,7 @@ export class CacheService {
         }
       }
 
-      return new Promise<ItemResponses.ListContentItemsResponse<TItem>>((resolve, reject) => {
+      return new Promise<IDeliveryNetworkResponse<Responses.IListContentItemsResponse<TContentItem>, Contracts.IListContentItemsContract>>((resolve, reject) => {
         resolve(null);
       });
 

@@ -5,7 +5,7 @@ import { IDeliveryClientConfig } from '@kentico/kontent-delivery'
 import defu from 'defu'
 import { logger } from './utilties/logger'
 import chalk from 'chalk'
-import { NuxtDeliveryClient } from './runtime/NuxtDeliveryClient'
+import { NuxtDeliveryClient } from './runtime/nuxt-delivery-client'
 
 type Exclude<T, U> = T extends U ? never : T
 
@@ -47,21 +47,21 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
 
 declare module '@nuxt/types' {
   interface Context {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
 
   interface NuxtAppOptions {
-    $deliveryclient: NuxtDeliveryClient
+    $nuxtDeliveryClient: NuxtDeliveryClient
   }
 
   interface Configuration {
-    deliveryclient?: IDeliveryClientConfig
+    nuxtDeliveryClient?: IDeliveryClientConfig
   }
 }
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $deliveryclient: NuxtDeliveryClient;
+    $nuxtDeliveryClient: NuxtDeliveryClient;
   }
 }
 
