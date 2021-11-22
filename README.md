@@ -117,7 +117,7 @@ If you need to customize the Kentico Kontent Delivery SDK by registering interce
 
 ``` javascript
 export default function ({ store, $nuxtDeliveryClient }) {
-    $nuxtDeliveryClient.deliveryClient.config.globalHeaders = (queryConfig) => {
+    $nuxtDeliveryClient.config.globalHeaders = (queryConfig) => {
         let headers = [];
         headers.push({header: 'Authorization', value: 'bearer ' + store.state.token });
         return headers;
@@ -148,7 +148,7 @@ class Page extends ContentItem {
 }
 
 export default function ({ store, app, $nuxtDeliveryClient }) {
-    $nuxtDeliveryClient.deliveryClient.config.typeResolvers = [
+    $nuxtDeliveryClient.config.typeResolvers = [
         new TypeResolver('page', () => new Page())
     ]
 }
