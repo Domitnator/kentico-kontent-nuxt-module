@@ -1,11 +1,11 @@
 import Vue from 'vue'
+import defu from 'defu'
+import chalk from 'chalk'
 import { resolve } from 'path'
 import { Module, Plugin  } from '@nuxt/types'
 import { IDeliveryClientConfig } from '@kentico/kontent-delivery'
-import defu from 'defu'
 import { logger } from './utilties/logger'
-import chalk from 'chalk'
-import { NuxtDeliveryClient } from './runtime/nuxt-delivery-client'
+import { INuxtDeliveryClient } from "./runtime/inuxt-delivery-client-interface";
 
 type Exclude<T, U> = T extends U ? never : T
 
@@ -47,11 +47,11 @@ const deliveryClientModule: Module<IDeliveryClientConfig> = function (moduleOpti
 
 declare module '@nuxt/types' {
   interface Context {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
 
   interface NuxtAppOptions {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
 
   interface Configuration {
@@ -61,13 +61,10 @@ declare module '@nuxt/types' {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $nuxtDeliveryClient: NuxtDeliveryClient;
+    $nuxtDeliveryClient: INuxtDeliveryClient;
   }
 }
 
-export { NuxtDeliveryClient }
-
 export default deliveryClientModule
-
 export const meta = require('../package.json')
 

@@ -1,5 +1,7 @@
+import { DeliveryClient, IContentItem, MultipleItemsQuery } from '@kentico/kontent-delivery';
 import { Plugin } from '@nuxt/types'
-import { NuxtDeliveryClient } from '~deliveryclientruntime/nuxt-delivery-client'
+import { INuxtDeliveryClient } from "~deliveryclientruntime/inuxt-delivery-client-interface";
+import { CacheService } from "~deliveryclientruntime/cache-service"
 
 // Default configuration
 let config = {
@@ -19,22 +21,22 @@ try {
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
 }
 
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
   interface Context {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
 }
 
 declare module 'vuex/types/index' {
   interface Store<S> {
-    $nuxtDeliveryClient: NuxtDeliveryClient
+    $nuxtDeliveryClient: INuxtDeliveryClient
   }
 }
 
@@ -58,7 +60,11 @@ const deliveryClientPlugin: Plugin = (context, inject) => {
     });
   }
 
-  const nuxtDeliveryClient = new NuxtDeliveryClient(config.kenticokontent);
+  const deliveryClient = new DeliveryClient(config.kenticokontent);
+  const cacheService = new CacheService(deliveryClient);
+
+  const nuxtDeliveryClient = deliveryClient as any as INuxtDeliveryClient;
+  nuxtDeliveryClient.viaCache = <TContentItem extends IContentItem>(query: MultipleItemsQuery<TContentItem>, seconds: number, cacheKey?: string, isServerProcess?: boolean) => cacheService.viaCache(query, seconds, cacheKey, isServerProcess);
 
   inject('nuxtDeliveryClient', nuxtDeliveryClient)
 }
