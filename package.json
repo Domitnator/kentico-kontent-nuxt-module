@@ -56,7 +56,7 @@
     "eslint": "latest",
     "jest": "latest",
     "nuxt": "latest",
-    "semantic-release": "^18.0.0",
+    "semantic-release": "^19.0.3",
     "siroc": "latest",
     "standard-version": "latest"
   }
