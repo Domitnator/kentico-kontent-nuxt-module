@@ -3,7 +3,7 @@ import defu from 'defu'
 import chalk from 'chalk'
 import { resolve } from 'path'
 import { Module, Plugin  } from '@nuxt/types'
-import { IDeliveryClientConfig } from '@kentico/kontent-delivery'
+import { IDeliveryClientConfig } from '@kontent-ai/delivery-sdk'
 import { logger } from './utilties/logger'
 import { INuxtDeliveryClient } from "./runtime/inuxt-delivery-client-interface";
 
