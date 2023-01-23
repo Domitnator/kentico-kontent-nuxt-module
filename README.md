@@ -132,7 +132,7 @@ Type resolvers can also be registered by using a nuxt plugin:
 ### plugins/kenticokontentNuxtModule.js
 
 ``` javascript
-import { TypeResolver, ContentItem } from '@kentico/kontent-delivery';
+import { TypeResolver, ContentItem } from '@kontent-ai/delivery-sdk';
 
 class Page extends ContentItem {
     constructor() {

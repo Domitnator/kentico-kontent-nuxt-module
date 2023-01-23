@@ -1,4 +1,4 @@
-import { Contracts, IContentItem, IContentItemElements, IDeliveryClient, IDeliveryNetworkResponse, MultipleItemsQuery, Responses } from "@kentico/kontent-delivery"
+import { Contracts, IContentItem, IContentItemElements, IDeliveryClient, IDeliveryNetworkResponse, MultipleItemsQuery, Responses } from "@kontent-ai/delivery-sdk"
 
 export class CacheService {
     cacheEntries: any[]
@@ -8,12 +8,12 @@ export class CacheService {
       this.deliveryClient = client;
     }
     viaCache<TContentItem extends IContentItem<IContentItemElements>>(query: MultipleItemsQuery<TContentItem>, seconds: number, cacheKey?: string, isServerProcess?: boolean): Promise<IDeliveryNetworkResponse<Responses.IListContentItemsResponse<TContentItem>, Contracts.IListContentItemsContract>> {
-      
+
        // Always perform a query when on the server
        if (this.cacheEntries && query && isServerProcess) {
         return query.toPromise();
       };
-  
+
       if (!seconds) {
         seconds = 30
       }
@@ -22,7 +22,7 @@ export class CacheService {
       if (query && !process.server) {
         const key = (cacheKey && cacheKey !== '') ? cacheKey : query.getUrl()
         const cacheEntry = getCacheEntry(this.cacheEntries, key)
-  
+
         // return from cache
         if (cacheEntry && getDiffInSeconds(new Date(), cacheEntry.timestamp) < seconds) {
           return new Promise<IDeliveryNetworkResponse<Responses.IListContentItemsResponse<TContentItem>, Contracts.IListContentItemsContract>>((resolve, reject) => {
